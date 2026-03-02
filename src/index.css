@@ -1,0 +1,28 @@
+/* @tailwind base; */
+/* @tailwind components; */
+@tailwind utilities;
+
+@import "tailwindcss";
+
+/* Theme (thay thế theme.extend) */
+@theme {
+  --color-primary: #1717cf;
+  --color-secondary: #7077ff;
+  --font-display: "Inter", sans-serif;
+  --radius-default: 4px;
+  --radius-lg: 8px;
+  --breakpoint-lg: 1024px;
+}
+
+/* Custom utilities */
+@utility btn {
+  @apply px-4 py-2 font-bold rounded-lg;
+}
+
+@utility btn-primary {
+  @apply btn bg-primary text-white shadow;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
