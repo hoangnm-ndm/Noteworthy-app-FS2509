@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="w-full border-t py-12 bg-white dark:bg-background-dark">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="w-full py-12 bg-white border-t dark:bg-background-dark">
+      <div className="flex flex-col items-center justify-between gap-8 px-6 mx-auto max-w-7xl md:px-10 md:flex-row">
         <div className="flex items-center gap-2 text-primary">
-          <div className="size-6 bg-primary text-white rounded flex items-center justify-center">
-            <span className="material-symbols-outlined text-sm">edit_note</span>
+          <div className="flex items-center justify-center text-white rounded size-6 bg-primary">
+            <span className="text-sm material-symbols-outlined">edit_note</span>
           </div>
           <h2 className="font-bold">Noteworthy</h2>
         </div>

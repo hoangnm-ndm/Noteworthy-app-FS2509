@@ -1,12 +1,12 @@
-import Input from "../ui/Input";
-import Button from "../ui/Button";
+import Input from "../components/ui/Input";
+import Button from "../components/ui/Button";
 
-export default function QuickAccess() {
+export default function LoginPage() {
   return (
-    <section className="w-full bg-slate-100/50 py-16 flex justify-center">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border">
-        <h2 className="text-2xl font-bold mb-2">Quick Access</h2>
-        <p className="text-sm text-slate-500 mb-6">
+    <section className="flex justify-center w-full py-16 bg-slate-100/50">
+      <div className="w-full max-w-md p-8 bg-white border shadow-xl rounded-2xl">
+        <h2 className="mb-2 text-2xl font-bold">Quick Access</h2>
+        <p className="mb-6 text-sm text-slate-500">
           Experience the future of note-taking in seconds.
         </p>
 
@@ -22,7 +22,7 @@ export default function QuickAccess() {
             placeholder="Enter password"
           />
 
-          <Button className="w-full bg-primary text-white h-12 mt-4">
+          <Button className="w-full h-12 mt-4 text-white bg-primary">
             Continue with Email
           </Button>
         </form>
