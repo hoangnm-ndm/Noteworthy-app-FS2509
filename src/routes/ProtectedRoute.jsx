@@ -1,15 +1,17 @@
-import { Navigate } from "react-router";
+import { Navigate, Outlet } from "react-router";
 
-const ProtectedRoute = ({
-  children,
-  isAuthenticated,
-  redirectTo = "/login",
-}) => {
-  if (!isAuthenticated) {
+const ProtectedRoute = ({ redirectTo = "/login" }) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user);
+  if (!user) {
     return <Navigate to={redirectTo} replace />;
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
 
 export default ProtectedRoute;
