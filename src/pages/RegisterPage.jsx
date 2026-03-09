@@ -1,53 +1,80 @@
-import Input from "../components/ui/Input";
-import Button from "../components/ui/Button";
+import React from "react";
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerAuthSchema } from "../schemas/authSchema";
+import api from "../components/api";
+import { toast } from "react-toastify";
 
-export default function RegisterPage() {
+const RegisterPage = () => {
+  const nav = useNavigate();
   const {
     register,
-    formState: { errors },
     handleSubmit,
+    formState: { errors },
   } = useForm({
     resolver: zodResolver(registerAuthSchema),
   });
-
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const res = await api.post("/register", data);
+    toast.success("Đăng ký thành công, đăng nhập ngay!");
+    nav("/login");
   };
-
   return (
-    <section className="flex justify-center w-full py-16 bg-slate-100/50">
-      <div className="w-full max-w-md p-8 bg-white border shadow-xl rounded-2xl">
-        <h2 className="mb-2 text-2xl font-bold">Register Now!</h2>
+    <>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="px-10 py-5 mx-auto my-16 border rounded-xl border-slate-400 w-md"
+      >
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input {...register("email")} type="email" className="form-control" />
+          {errors.email && (
+            <p className="text-danger">{errors.email?.message}</p>
+          )}
+        </div>
 
-        <p className="mb-6 text-sm text-slate-500">
-          Đăng ký trải nghiệm ngay ghi chú thông minh sử dụng AI!
-        </p>
-
-        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            label="Email Address"
-            type="email"
-            placeholder="name@gmail.com"
-            {...register("email")}
-            error={errors.email?.message}
+        <div className="mb-3">
+          <label htmlFor="fullname" className="form-label">
+            Full Name
+          </label>
+          <input
+            {...register("fullname")}
+            type="text"
+            className="form-control"
           />
 
-          <Input
-            label="Password"
-            type="password"
-            placeholder="Enter password"
+          {errors.fullname && (
+            <p className="text-danger">{errors.fullname?.message}</p>
+          )}
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
             {...register("password")}
-            error={errors.password?.message}
+            type="password"
+            className="form-control"
           />
 
-          <Button className="w-full h-12 mt-4 text-white bg-primary">
-            Continue with Email
-          </Button>
-        </form>
-      </div>
-    </section>
+          {errors.password && (
+            <p className="text-danger">{errors.password?.message}</p>
+          )}
+        </div>
+
+        <div className="mb-3">
+          <Link to={"/login"}>Do you have an account?</Link>
+        </div>
+
+        <div className="mb-3">
+          <button className="btn btn-primary w-100">Register Now!</button>
+        </div>
+      </form>
+    </>
   );
-}
+};
+export default RegisterPage;

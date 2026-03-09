@@ -1,3 +1,10 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "hoang@gmail.com",
+      "password": "$2a$10$kZKn.66NeXFR/MA242s/g.om8MI2Hyjh/5UY5hXr1CuuOFGSMUj6u",
+      "fullname": "hoangnguyen",
+      "id": 1
+    }
+  ]
 }

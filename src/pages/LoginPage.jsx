@@ -1,32 +1,67 @@
-import Input from "../components/ui/Input";
-import Button from "../components/ui/Button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import api from "../components/api";
+import { loginAuthSchema } from "../schemas/authSchema";
 
-export default function LoginPage() {
+const LoginPage = () => {
+  const nav = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginAuthSchema),
+  });
+  const onSubmit = async (data) => {
+    const res = await api.post("/login", data);
+    console.log(res.data);
+    localStorage.setItem("user", JSON.stringify(res.data.user));
+    localStorage.setItem("accessToken", res.data.accessToken);
+    toast.success("Đăng nhập thành công!");
+  };
   return (
-    <section className="flex justify-center w-full py-16 bg-slate-100/50">
-      <div className="w-full max-w-md p-8 bg-white border shadow-xl rounded-2xl">
-        <h2 className="mb-2 text-2xl font-bold">Quick Access</h2>
-        <p className="mb-6 text-sm text-slate-500">
-          Experience the future of note-taking in seconds.
-        </p>
+    <>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="px-10 py-5 mx-auto my-16 border rounded-xl border-slate-400 w-md"
+      >
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input {...register("email")} type="email" className="form-control" />
+          {errors.email && (
+            <p className="text-danger">{errors.email?.message}</p>
+          )}
+        </div>
 
-        <form className="space-y-4">
-          <Input
-            label="Email Address"
-            type="email"
-            placeholder="name@company.com"
-          />
-          <Input
-            label="Password"
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            {...register("password")}
             type="password"
-            placeholder="Enter password"
+            className="form-control"
           />
 
-          <Button className="w-full h-12 mt-4 text-white bg-primary">
-            Continue with Email
-          </Button>
-        </form>
-      </div>
-    </section>
+          {errors.password && (
+            <p className="text-danger">{errors.password?.message}</p>
+          )}
+        </div>
+
+        <div className="mb-3">
+          <Link to={"/login"}>Do you have an account?</Link>
+        </div>
+
+        <div className="mb-3">
+          <button className="btn btn-primary w-100">Login Now!</button>
+        </div>
+      </form>
+    </>
   );
-}
+};
+export default LoginPage;
