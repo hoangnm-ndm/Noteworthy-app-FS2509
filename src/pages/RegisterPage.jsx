@@ -1,9 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerAuthSchema } from "../schemas/authSchema";
-import api from "../components/api";
+import api from "../api";
 import { toast } from "react-toastify";
 
 const RegisterPage = () => {

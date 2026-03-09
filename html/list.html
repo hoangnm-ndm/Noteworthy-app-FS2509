@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1717cf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111121",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <title>Noteworthy Dashboard</title>
+  </head>
+  <body
+    class="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100"
+  >
+    <div class="flex flex-col h-screen">
+      <!-- Top Navigation Bar -->
+
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar Navigation -->
+        <aside
+          class="flex flex-col w-64 p-4 overflow-y-auto bg-white border-r border-slate-200 dark:border-slate-800 dark:bg-slate-900 shrink-0"
+          id="sidebar-component"
+        >
+          <div class="mb-8 space-y-1">
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary font-semibold"
+              href="#"
+            >
+              <span class="material-symbols-outlined">description</span>
+              <span class="text-sm">All Notes</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined">star</span>
+              <span class="text-sm">Favorites</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined">history</span>
+              <span class="text-sm">Recent</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined">delete</span>
+              <span class="text-sm">Trash</span>
+            </a>
+          </div>
+          <div class="flex items-center justify-between px-3 mb-2">
+            <h3
+              class="text-xs font-bold tracking-wider uppercase text-slate-400"
+            >
+              Labels
+            </h3>
+            <button class="text-slate-400 hover:text-primary">
+              <span class="text-sm material-symbols-outlined">add</span>
+            </button>
+          </div>
+          <div class="space-y-1">
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span class="text-sm">Work</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-sm">Personal</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span class="text-sm">Ideas</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              href="#"
+            >
+              <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <span class="text-sm">Travel</span>
+            </a>
+          </div>
+          <div class="pt-6 mt-auto">
+            <div class="p-4 border bg-primary/5 rounded-xl border-primary/10">
+              <p class="mb-2 text-xs font-medium text-primary">Storage</p>
+              <div
+                class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-2"
+              >
+                <div class="w-3/4 h-full bg-primary"></div>
+              </div>
+              <p class="text-[10px] text-slate-500">1.2 GB of 2 GB used</p>
+            </div>
+          </div>
+        </aside>
+        <!-- Main Content Area -->
+        <main
+          class="flex flex-col flex-1 overflow-hidden bg-background-light dark:bg-background-dark"
+        >
+          <!-- Content Toolbar -->
+          <div
+            class="flex items-center justify-between px-8 py-4 border-b border-slate-200 dark:border-slate-800 bg-background-light/50 backdrop-blur-sm"
+            id="content-toolbar-component"
+          >
+            <h2 class="text-lg font-bold">All Notes</h2>
+            <div class="flex items-center gap-3">
+              <button
+                class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:border-primary transition-colors"
+              >
+                <span class="text-lg material-symbols-outlined"
+                  >calendar_today</span
+                >
+                <span>Sort by Date</span>
+                <span class="text-lg material-symbols-outlined"
+                  >expand_more</span
+                >
+              </button>
+              <button
+                class="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium hover:border-primary transition-colors"
+              >
+                <span class="text-lg material-symbols-outlined">label</span>
+                <span>Filter by Label</span>
+                <span class="text-lg material-symbols-outlined"
+                  >expand_more</span
+                >
+              </button>
+              <div class="flex p-1 rounded-lg bg-slate-200 dark:bg-slate-800">
+                <button
+                  class="p-1.5 bg-white dark:bg-slate-700 shadow-sm rounded-md"
+                >
+                  <span class="text-lg material-symbols-outlined"
+                    >grid_view</span
+                  >
+                </button>
+                <button class="p-1.5 text-slate-500">
+                  <span class="text-lg material-symbols-outlined"
+                    >view_list</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Notes Grid -->
+          <div class="flex-1 p-8 overflow-y-auto">
+            <div
+              class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              id="notes-grid-component"
+            >
+              <!-- Note Card 1 -->
+              <div
+                class="relative p-5 transition-all bg-white border cursor-pointer group dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 note-card-component"
+              >
+                <div class="flex items-start justify-between mb-4">
+                  <span
+                    class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase rounded leading-none"
+                    >Work</span
+                  >
+                  <button
+                    class="transition-opacity opacity-0 text-slate-400 group-hover:opacity-100"
+                  >
+                    <span class="text-lg material-symbols-outlined"
+                      >more_vert</span
+                    >
+                  </button>
+                </div>
+                <h3
+                  class="mb-2 font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                >
+                  Q4 Project Brainstorming
+                </h3>
+                <p
+                  class="mb-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-3"
+                >
+                  Initial ideas for the user interface refresh and backend
+                  optimization. Focus on performance metrics and accessibility
+                  standards...
+                </p>
+                <div
+                  class="flex items-center justify-between pt-4 mt-auto border-t border-slate-100 dark:border-slate-800"
+                >
+                  <div class="flex items-center gap-2 text-slate-400">
+                    <span class="text-sm material-symbols-outlined"
+                      >schedule</span
+                    >
+                    <span class="text-[11px]">2 hours ago</span>
+                  </div>
+                  <span
+                    class="text-lg material-symbols-outlined text-primary/40"
+                    >star</span
+                  >
+                </div>
+              </div>
+              <!-- Note Card 2 -->
+              <div
+                class="p-5 transition-all bg-white border cursor-pointer group dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 note-card-component"
+              >
+                <div class="flex items-start justify-between mb-4">
+                  <span
+                    class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase rounded leading-none"
+                    >Personal</span
+                  >
+                  <button
+                    class="transition-opacity opacity-0 text-slate-400 group-hover:opacity-100"
+                  >
+                    <span class="text-lg material-symbols-outlined"
+                      >more_vert</span
+                    >
+                  </button>
+                </div>
+                <h3
+                  class="mb-2 font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                >
+                  Weekend Grocery List
+                </h3>
+                <p
+                  class="mb-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-3"
+                >
+                  - Almond milk (unsweetened)<br />- Fresh basil and tomatoes<br />-
+                  Whole grain bread<br />- Greek yogurt...
+                </p>
+                <div
+                  class="flex items-center justify-between pt-4 mt-auto border-t border-slate-100 dark:border-slate-800"
+                >
+                  <div class="flex items-center gap-2 text-slate-400">
+                    <span class="text-sm material-symbols-outlined"
+                      >schedule</span
+                    >
+                    <span class="text-[11px]">Yesterday</span>
+                  </div>
+                  <span class="text-lg material-symbols-outlined text-slate-300"
+                    >star</span
+                  >
+                </div>
+              </div>
+              <!-- Note Card 3 -->
+              <div
+                class="relative p-5 overflow-hidden transition-all bg-white border cursor-pointer group dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 note-card-component"
+              >
+                <div class="absolute inset-x-0 top-0 h-1.5 bg-amber-500"></div>
+                <div class="flex items-start justify-between mb-4">
+                  <span
+                    class="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-bold uppercase rounded leading-none"
+                    >Ideas</span
+                  >
+                  <button
+                    class="transition-opacity opacity-0 text-slate-400 group-hover:opacity-100"
+                  >
+                    <span class="text-lg material-symbols-outlined"
+                      >more_vert</span
+                    >
+                  </button>
+                </div>
+                <h3
+                  class="mb-2 font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                >
+                  App Startup Concept
+                </h3>
+                <p
+                  class="mb-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-3"
+                >
+                  A platform that connects local artisans directly with interior
+                  designers for bespoke furniture projects...
+                </p>
+                <div
+                  class="flex items-center justify-between pt-4 mt-auto border-t border-slate-100 dark:border-slate-800"
+                >
+                  <div class="flex items-center gap-2 text-slate-400">
+                    <span class="text-sm material-symbols-outlined"
+                      >schedule</span
+                    >
+                    <span class="text-[11px]">3 days ago</span>
+                  </div>
+                  <span
+                    class="text-lg material-symbols-outlined text-amber-400 fill-amber-400"
+                    >star</span
+                  >
+                </div>
+              </div>
+              <!-- Note Card 4 -->
+              <div
+                class="p-5 transition-all bg-white border cursor-pointer group dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 note-card-component"
+              >
+                <div class="flex items-start justify-between mb-4">
+                  <span
+                    class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-[10px] font-bold uppercase rounded leading-none"
+                    >Travel</span
+                  >
+                  <button
+                    class="transition-opacity opacity-0 text-slate-400 group-hover:opacity-100"
+                  >
+                    <span class="text-lg material-symbols-outlined"
+                      >more_vert</span
+                    >
+                  </button>
+                </div>
+                <h3
+                  class="mb-2 font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                >
+                  Japan Trip Itinerary
+                </h3>
+                <p
+                  class="mb-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-3"
+                >
+                  Flight lands at Narita. Take the Skyliner to Ueno. Dinner in
+                  Shinjuku Golden Gai area...
+                </p>
+                <div
+                  class="flex items-center justify-between pt-4 mt-auto border-t border-slate-100 dark:border-slate-800"
+                >
+                  <div class="flex items-center gap-2 text-slate-400">
+                    <span class="text-sm material-symbols-outlined"
+                      >schedule</span
+                    >
+                    <span class="text-[11px]">Oct 12, 2023</span>
+                  </div>
+                  <span class="text-lg material-symbols-outlined text-slate-300"
+                    >star</span
+                  >
+                </div>
+              </div>
+              <!-- Additional Cards -->
+              <div
+                class="p-5 transition-all bg-white border cursor-pointer group dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 note-card-component"
+              >
+                <div class="flex items-start justify-between mb-4">
+                  <span
+                    class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase rounded leading-none"
+                    >Work</span
+                  >
+                  <button
+                    class="transition-opacity opacity-0 text-slate-400 group-hover:opacity-100"
+                  >
+                    <span class="text-lg material-symbols-outlined"
+                      >more_vert</span
+                    >
+                  </button>
+                </div>
+                <h3
+                  class="mb-2 font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                >
+                  Meeting Notes: Client Feedback
+                </h3>
+                <p
+                  class="mb-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-3"
+                >
+                  Client requested more emphasis on the dark mode implementation
+                  and smoother transitions between dashboard widgets...
+                </p>
+                <div
+                  class="flex items-center justify-between pt-4 mt-auto border-t border-slate-100 dark:border-slate-800"
+                >
+                  <div class="flex items-center gap-2 text-slate-400">
+                    <span class="text-sm material-symbols-outlined"
+                      >schedule</span
+                    >
+                    <span class="text-[11px]">Oct 10, 2023</span>
+                  </div>
+                  <span class="text-lg material-symbols-outlined text-slate-300"
+                    >star</span
+                  >
+                </div>
+              </div>
+              <div
+                class="p-5 transition-all bg-white border cursor-pointer group dark:bg-slate-900 border-slate-200 dark:border-slate-800 rounded-xl hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 note-card-component"
+              >
+                <div class="flex items-start justify-between mb-4">
+                  <span
+                    class="px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold uppercase rounded leading-none"
+                    >Unlabeled</span
+                  >
+                  <button
+                    class="transition-opacity opacity-0 text-slate-400 group-hover:opacity-100"
+                  >
+                    <span class="text-lg material-symbols-outlined"
+                      >more_vert</span
+                    >
+                  </button>
+                </div>
+                <h3
+                  class="mb-2 font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                >
+                  Quick Note - Password Reset
+                </h3>
+                <p
+                  class="mb-4 text-sm leading-relaxed text-slate-500 dark:text-slate-400 line-clamp-3"
+                >
+                  Reminder to update the recovery email for the development
+                  staging environment before the next release cycle...
+                </p>
+                <div
+                  class="flex items-center justify-between pt-4 mt-auto border-t border-slate-100 dark:border-slate-800"
+                >
+                  <div class="flex items-center gap-2 text-slate-400">
+                    <span class="text-sm material-symbols-outlined"
+                      >schedule</span
+                    >
+                    <span class="text-[11px]">Oct 08, 2023</span>
+                  </div>
+                  <span class="text-lg material-symbols-outlined text-slate-300"
+                    >star</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Pagination Footer -->
+          <footer
+            class="flex items-center justify-between px-8 py-4 bg-white border-t border-slate-200 dark:border-slate-800 dark:bg-slate-900 shrink-0"
+            id="pagination-footer-component"
+          >
+            <p class="text-sm text-slate-500">Showing 1 to 12 of 48 notes</p>
+            <div class="flex items-center gap-2">
+              <button
+                class="flex items-center justify-center border rounded-lg size-9 border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50"
+                disabled=""
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button
+                class="flex items-center justify-center text-sm font-semibold text-white rounded-lg size-9 bg-primary"
+              >
+                1
+              </button>
+              <button
+                class="flex items-center justify-center text-sm rounded-lg size-9 hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                2
+              </button>
+              <button
+                class="flex items-center justify-center text-sm rounded-lg size-9 hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                3
+              </button>
+              <span class="px-1 text-slate-400">...</span>
+              <button
+                class="flex items-center justify-center text-sm rounded-lg size-9 hover:bg-slate-100 dark:hover:bg-slate-800"
+              >
+                12
+              </button>
+              <button
+                class="flex items-center justify-center border rounded-lg size-9 border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

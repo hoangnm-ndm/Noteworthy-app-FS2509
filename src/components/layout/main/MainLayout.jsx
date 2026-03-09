@@ -1,12 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router";
+import HeaderMain from "./HeaderMain";
 
-const Layout = () => {
+const MainLayout = () => {
   return (
     <>
+      <HeaderMain />
       <Outlet />
     </>
   );
 };
 
-export default Layout;
+export default MainLayout;

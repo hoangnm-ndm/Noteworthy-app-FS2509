@@ -1,11 +1,12 @@
 import Button from "../ui/Button";
 import AvatarGroup from "../ui/AvatarGroup";
+import thumbnailHero from "../../assets/imgs/111.webp";
 
 export default function HeroSection() {
   return (
-    <div className="w-full px-6 md:px-10 py-12 md:py-20 flex flex-col md:flex-row gap-10 items-center justify-between">
-      <div className="flex flex-col gap-8 w-full md:w-1/2 justify-between">
-        <h1 className="text-4xl md:text-6xl font-black">
+    <div className="flex flex-col items-center justify-between w-full gap-10 px-6 py-12 md:px-10 md:py-20 md:flex-row">
+      <div className="flex flex-col justify-between w-full gap-8 md:w-1/2">
+        <h1 className="text-4xl font-black md:text-6xl">
           Capture your thoughts, organized effortlessly
         </h1>
 
@@ -13,11 +14,11 @@ export default function HeroSection() {
           Noteworthy helps you focus on what matters...
         </p>
 
-        <div className="flex gap-4 flex-wrap">
-          <Button className="min-w-40 h-14 px-6 bg-primary text-white shadow-lg">
+        <div className="flex flex-wrap gap-4">
+          <Button className="px-6 text-white shadow-lg min-w-40 h-14 bg-primary">
             Get Started
           </Button>
-          <Button className="min-w-40 h-14 px-6 border border-slate-300 dark:border-slate-700">
+          <Button className="px-6 border min-w-40 h-14 border-slate-300 dark:border-slate-700">
             View Demo
           </Button>
         </div>
@@ -28,13 +29,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 relative">
+      <div className="relative w-full md:w-1/2">
         <div className="absolute inset-0 bg-primary/10 blur-[100px] rounded-full"></div>
-        <div className="relative bg-white p-4 rounded-2xl border">
+        <div className="relative p-3 bg-white border rounded-2xl">
           <div
-            className="w-full aspect-video bg-cover rounded-lg"
+            className="w-full bg-cover rounded-lg aspect-video"
             style={{
-              backgroundImage: "url('./src/assets/imgs/111.webp')",
+              backgroundImage: `url(${thumbnailHero})`,
             }}
           />
         </div>

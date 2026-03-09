@@ -5,6 +5,12 @@
       "password": "$2a$10$kZKn.66NeXFR/MA242s/g.om8MI2Hyjh/5UY5hXr1CuuOFGSMUj6u",
       "fullname": "hoangnguyen",
       "id": 1
+    },
+    {
+      "email": "boypho@gmail.com",
+      "password": "$2a$10$diY/iQlYmWDpEE0jtbDIaeT2TiDc9CV2KmT6l4wNxc.hSOIE6F1la",
+      "fullname": "boypho101",
+      "id": 2
     }
   ]
 }

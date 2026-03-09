@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import api from "../components/api";
+import api from "../api";
 import { loginAuthSchema } from "../schemas/authSchema";
 
 const LoginPage = () => {
