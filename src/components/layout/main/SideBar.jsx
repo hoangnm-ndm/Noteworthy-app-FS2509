@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router";
+import ItemLink from "../../common/ItemLink";
 
 const SideBar = () => {
   return (
@@ -7,34 +9,21 @@ const SideBar = () => {
       id="sidebar-component"
     >
       <div className="mb-8 space-y-1">
-        <a
-          className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary font-semibold"
-          href="#"
-        >
-          <span className="material-symbols-outlined">description</span>
-          <span className="text-sm">All Notes</span>
-        </a>
-        <a
-          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          href="#"
-        >
-          <span className="material-symbols-outlined">star</span>
-          <span className="text-sm">Favorites</span>
-        </a>
-        <a
-          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          href="#"
-        >
-          <span className="material-symbols-outlined">history</span>
-          <span className="text-sm">Recent</span>
-        </a>
-        <a
-          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          href="#"
-        >
-          <span className="material-symbols-outlined">delete</span>
-          <span className="text-sm">Trash</span>
-        </a>
+        <ItemLink icon={"description"} active={true} linkTo={"/"}>
+          All notes
+        </ItemLink>
+
+        <ItemLink icon={"star"} linkTo={"/favorites"}>
+          Favorites
+        </ItemLink>
+
+        <ItemLink icon={"history"} linkTo={"/recent"}>
+          Recent
+        </ItemLink>
+
+        <ItemLink icon={"delete"} linkTo={"/deleted"}>
+          Trash
+        </ItemLink>
       </div>
       <div className="flex items-center justify-between px-3 mb-2">
         <h3 className="text-xs font-bold tracking-wider uppercase text-slate-400">
