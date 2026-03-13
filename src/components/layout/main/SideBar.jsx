@@ -9,7 +9,7 @@ const SideBar = () => {
       id="sidebar-component"
     >
       <div className="mb-8 space-y-1">
-        <ItemLink icon={"description"} active={true} linkTo={"/"}>
+        <ItemLink icon={"description"} linkTo={"/"}>
           All notes
         </ItemLink>
 

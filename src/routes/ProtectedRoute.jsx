@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router";
 
-const ProtectedRoute = ({ redirectTo = "/login" }) => {
+const ProtectedRoute = ({ redirectTo = "/auth/login" }) => {
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(user);
   if (!user) {
